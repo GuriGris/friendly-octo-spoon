@@ -2,15 +2,8 @@ using UnityEngine;
 
 public class LogicScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject ship1;
+    public GameObject ship2;
+    public GameObject ship3;
+    public GameObject ship4;
 }
