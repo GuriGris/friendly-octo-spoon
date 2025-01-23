@@ -116,12 +116,12 @@ TextureImporter:
       name: ship1_0
       rect:
         serializedVersion: 2
-        x: 103
-        y: 86
-        width: 354
-        height: 346
+        x: 0
+        y: 0
+        width: 350
+        height: 351
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1e97e0b51dd9be14880c81560f9b7169
     internalID: 0
     vertices: []
     indices: 
@@ -149,6 +149,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       ship1_0: 5307185714078801750
+      ship1_1: -964018901
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
