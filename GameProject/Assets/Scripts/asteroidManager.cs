@@ -1,14 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 class asteroidManager : MonoBehaviour {
     [SerializeField] private GameObject  asteroidPrefab;
+    
+    [Range(1f, 5f)]
+    [SerializeField] private float minPauseTime = 2f;
+
+    [Range(1f, 5f)]
+    [SerializeField] private float maxPauseTime = 3f;
+
     private List<int> allowedYValues = new List<int> { 4, 2, 0, -2, -4 };
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.S)) {
+    private void Start() {
+        StartCoroutine(asteroidSpawner());
+        
+    }
 
+    // Spawns an asteroid belt every two seconds if game not is ended
+    private IEnumerator asteroidSpawner () {
+        while (!gameController.gameEnded) {
+            float interval = Random.Range(minPauseTime, maxPauseTime+0.1f);
             spawnAsteroidBelt(1, 4);
+            yield return new WaitForSeconds(interval);
         }
     }
 
