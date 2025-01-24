@@ -20,7 +20,7 @@ public class ShipMovement : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         // Set the Z position to the same as the player to avoid depth issues
-        mousePosition.z = transform.position.z;
+        mousePosition.z = 0;
 
         float distanceToMouse = Vector2.Distance(mousePosition, player.position);
 

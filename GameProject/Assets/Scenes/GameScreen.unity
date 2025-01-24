@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 294803468}
   - component: {fileID: 294803469}
+  - component: {fileID: 294803470}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -170,6 +171,19 @@ MonoBehaviour:
   maxSpeed: 5
   rotationSpeed: 5
   speedText: {fileID: 747535559}
+--- !u!114 &294803470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294803467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6985688dabd3f654e86d1a9596c9f58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mousePosition: {x: 0, y: 0}
 --- !u!1 &348399851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1635,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1674,7 +1688,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 75
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1889,7 +1903,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -2938,7 +2952,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    m_Range: {x: 0, y: 1}
+    m_Range: {x: 0, y: 0}
   ForceModule:
     enabled: 1
     x:
