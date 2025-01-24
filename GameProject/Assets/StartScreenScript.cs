@@ -4,19 +4,27 @@ using UnityEngine.UI;
 
 public class StartScreenScript : MonoBehaviour
 {
-    public GameObject[] ships;
+    public GameObject ship;
+    public bool playClicked = false;
+    public float startPoint;
+    // public RawImage selectedShipImg;
 
     public void startGame()
     {
-        SceneManager.LoadScene("GameScreen");
+        playClicked = true;
+        startPoint = ship.transform.position.x;
     }
 
-    public void setActive(int n)
+    private void Update()
     {
-        for (int i = 0; i < 4; i++)
+        if (playClicked)
         {
-            ships[i].GetComponent<RawImage>().color = new Color(241f / 255f, 150f / 255f, 71f / 255f);
+            ship.transform.position += Vector3.right * Time.deltaTime * 100 * 3;
         }
-        ships[n].GetComponent<RawImage>().color = new Color(255f / 255f, 100f / 255f, 51f / 255f);
+        if (ship.transform.position.x - startPoint > Screen.width*0.75f)
+        {
+            Destroy(ship);
+            SceneManager.LoadScene("GameScreen");
+        }
     }
 }
