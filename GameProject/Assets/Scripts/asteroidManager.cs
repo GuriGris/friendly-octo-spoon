@@ -1,33 +1,32 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 class asteroidManager : MonoBehaviour {
     [SerializeField] private GameObject  asteroidPrefab;
-    private int asteroidCount;
+    private List<int> allowedYValues = new List<int> { 4, 2, 0, -2, -4 };
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.S)) {
-            if (asteroidCount < 10) {
 
-            }
+            spawnAsteroidBelt(1, 4);
         }
-
-        Debug.Log(randomInts(1, 5, 5));
     }
 
-    List<int> randomInts(int startNumber, int endNumber, int amount) {
-        List<int> numbers = new List<int>();
+    void spawnAsteroidBelt(int minAsteroids, int maxAsteroids) {
+        int amountOfAsteroids = Random.Range(minAsteroids, maxAsteroids+1);
+        List<int> yValuesSack = new List<int>(allowedYValues);
 
-        for (int i = 0; i < amount; i++) {
-            numbers.Add(Random.Range(startNumber, endNumber));
+        for (int i = 0; i<amountOfAsteroids; i++) {
+            if (yValuesSack.Count > 0) {
+                int randomIndex = Random.Range(0, yValuesSack.Count);
+                int randomY = yValuesSack[randomIndex];  // Get a random item from list
+                yValuesSack.RemoveAt(randomIndex);  // Remove the random item from list
+                spawnAsteroid(randomY);
+            }
         }
-
-        return numbers;
     }
 
     void spawnAsteroid(float y) {
-        Instantiate(asteroidPrefab, new Vector3(10, y, 0), Quaternion.identity);
+        Instantiate(asteroidPrefab, new Vector3(10, y, -3), Quaternion.identity);
     }
 }

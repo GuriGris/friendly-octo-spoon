@@ -5,7 +5,8 @@ class asteroidController : MonoBehaviour {
     private void Update() {
         transform.position += Vector3.left * moveSpeed * Time.deltaTime;
         if (transform.position.x < -10) {
-            transform.position = new Vector3(10, transform.position.y, 0);
+            //transform.position = new Vector3(10, transform.position.y, -3);
+            Destroy(gameObject);
         }
     }
 }
