@@ -4,6 +4,7 @@ using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
     private Transform player;
+    private int turnDelay = 0;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float rotationSpeed = 5f;
@@ -14,6 +15,7 @@ public class ShipMovement : MonoBehaviour
     }
 
     private void Update() {
+        turnDelay += 1;
         Vector3 mousePosition = Input.mousePosition;
 
         // Convert mouse position to world coordinates
@@ -34,7 +36,10 @@ public class ShipMovement : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
 
         // Smoothly rotate towards the target rotation using slerp
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        if (turnDelay%2 == 0)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
 
         float currentSpeed = distanceToMouse * 0.75f * speed;
 
