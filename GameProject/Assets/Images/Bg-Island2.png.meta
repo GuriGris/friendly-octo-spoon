@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 88b73bab2aeb143f68cc35a100d83bd3
+guid: cd9355158dd744d4287660c6af7a1b80
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3964407508561363270
-    second: ship3_0
+      213: -8073880471181386520
+    second: Bg-Island2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ship3_0
+      name: Bg-Island2_0
       rect:
         serializedVersion: 2
-        x: 87
-        y: 119
-        width: 386
-        height: 346
+        x: 127
+        y: 138
+        width: 245
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 64101bcef97640730800000000000000
-      internalID: 3964407508561363270
+      spriteID: 8ec154c1d70d3ff80800000000000000
+      internalID: -8073880471181386520
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ship3_0: 3964407508561363270
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -41,7 +41,7 @@ public class ShipMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
 
-        float currentSpeed = distanceToMouse * 0.75f * speed;
+        float currentSpeed = distanceToMouse * 0.9f * speed;
 
         // Clamp the speed to the maximum speed
         currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
