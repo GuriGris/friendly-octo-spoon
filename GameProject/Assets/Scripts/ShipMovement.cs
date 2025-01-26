@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -48,7 +49,7 @@ public class ShipMovement : MonoBehaviour
         if (currentSpeed < 0.05f) {
             currentSpeed = 0f;
         }
-        speedText.text = $"Speed: {currentSpeed}";
+        speedText.text = $"Speed: {Math.Round(currentSpeed, 2)}";
 
         transform.Translate(Vector3.up * currentSpeed * Time.deltaTime);
     }
