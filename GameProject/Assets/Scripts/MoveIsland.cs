@@ -15,6 +15,7 @@ public class MoveIsland : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameController.gameEnded) return;
         transform.position += Vector3.left * speed * Time.deltaTime;
         if (transform.position.x < deathPoint)
         {

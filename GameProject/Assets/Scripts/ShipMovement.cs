@@ -16,6 +16,8 @@ public class ShipMovement : MonoBehaviour
     }
 
     private void Update() {
+        if (gameController.gameEnded) return;
+
         turnDelay += 1;
         Vector3 mousePosition = Input.mousePosition;
 
