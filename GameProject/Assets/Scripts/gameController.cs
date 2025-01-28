@@ -17,7 +17,6 @@ public class gameController : MonoBehaviour {
     }
 
     private void Update() {
-        Debug.Log(gameEnded);
         if (gameEnded) {
             gameOverUI.SetActive(true);
         }
