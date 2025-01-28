@@ -9,7 +9,7 @@ public class MoveIsland : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range(1f, 3f);
+        speed = 0.8f;
     }
 
     // Update is called once per frame
