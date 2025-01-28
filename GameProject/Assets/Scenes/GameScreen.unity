@@ -6185,7 +6185,7 @@ MonoBehaviour:
   Island1: {fileID: 9052664029246808077, guid: b520f50aae92342e38250b5e525357c9, type: 3}
   Island2: {fileID: 2522705880604257757, guid: 2795714c9aef045b091d58d05a4e1726, type: 3}
   heightOffset: 7
-  spawnRate: 5
+  spawnRate: 8
 --- !u!4 &1343582035
 Transform:
   m_ObjectHideFlags: 0
