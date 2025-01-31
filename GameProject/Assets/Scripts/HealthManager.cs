@@ -3,12 +3,21 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public Image HealthBar;
-    public static float HealthAmount = 100f;
-    public float damageAmount;
-    public int damageTimer;
-    public float MaxDamageTimer;
-    
+    public Slider HealthBar;
+    public Image fill;
+    public float HealthAmount = 20f;
+    public float fractions = 1f;
+    public float damage;
+    public float TargetHealth = 20f;
+    public float diff;
+    public float count;
+    public Gradient gradient;
+
+    private void Start()
+    {
+        fill.color = gradient.Evaluate(1f);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -19,47 +28,51 @@ public class HealthManager : MonoBehaviour
             TakeDamage(-5);
         }
 
-        UpdateHeatlhBarUI();
+        UpdateHealthBarUI();
     }
 
-    public void UpdateHeatlhBarUI() {
-        if (damageTimer < MaxDamageTimer + 1 && MaxDamageTimer != 0) {
-            HealthAmount -= damageAmount / MaxDamageTimer;
-            HealthBar.fillAmount = HealthAmount / 100f;
-            damageTimer += 1;
-        }
-        if (damageTimer == MaxDamageTimer) {
-            damageAmount = 0;
-        }
-        if (HealthAmount <= 0f) {
-            gameController.gameEnded = true;
-        }
-        if (HealthAmount > 100f) {
-            HealthAmount = 100;
-            HealthBar.fillAmount = 1;
+    public void UpdateHealthBarUI() {
+        if (fractions > 1)
+        {
+            HealthAmount -= diff / fractions;
+            HealthBar.value = HealthAmount;
+            count += 1;
         }
 
-        if (HealthAmount < 75f && HealthAmount > 50f) {
-            HealthBar.color = new Color(243f / 255f, 198f / 255f, 35f / 255f);
+        if (HealthAmount > 20f) {
+            HealthAmount = 20f;
+            HealthBar.value = 20;
+            TargetHealth = 20f;
         }
-        if (HealthAmount < 50f && HealthAmount > 25f) {
-            HealthBar.color = new Color(235f / 255f, 131f / 255f, 23f / 255f);
+
+        if (count >= fractions)
+        {
+            HealthAmount = TargetHealth;
+            fractions = 1;
+            count = 0;
         }
-        if (HealthAmount < 25f) {
-            HealthBar.color = new Color(255f / 255f, 0f / 255f, 0f / 255f);
+
+        if (HealthAmount <= 0f)
+        {
+            gameController.gameEnded = true;
         }
-        if (HealthAmount > 75f) {
-            HealthBar.color = new Color(92f / 255f, 255f / 255f, 0f / 255f);
-        }
+        fill.color = gradient.Evaluate(HealthBar.normalizedValue);
     }
 
     public void TakeDamage(float damage)
     {
-        if (damageAmount == 0)
-        {
-            damageTimer = 0;
-        }
-        damageAmount += damage;
-        MaxDamageTimer = Mathf.Abs(damageAmount * 10f);
+        TargetHealth -= damage;
+        fractions = Mathf.Abs(HealthAmount - TargetHealth) * 5f;
+        count = 0;
+        diff = HealthAmount - TargetHealth;
+    }
+
+    public void SetMaxHealth()
+    {
+        HealthAmount = 20;
+        HealthBar.value = 20;
+        TargetHealth = 20f;
+        fractions = 1;
+        count = 0;
     }
 }

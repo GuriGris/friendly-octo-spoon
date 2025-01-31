@@ -128,7 +128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1831555571897873053, guid: 779d48923f5ef924086259a38c8c7137, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1831555571897873053, guid: 779d48923f5ef924086259a38c8c7137, type: 3}
       propertyPath: m_LocalPosition.z
@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7047876979272174482, guid: 779d48923f5ef924086259a38c8c7137, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1.25
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 7047876979272174482, guid: 779d48923f5ef924086259a38c8c7137, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

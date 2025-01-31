@@ -24,8 +24,8 @@ public class gameController : MonoBehaviour {
     }
 
     private void RestartGame() {
-        HealthManager.HealthAmount = 100f;
-        playerShip.GetComponent<HealthManager>().UpdateHeatlhBarUI();
+        playerShip.GetComponent<HealthManager>().SetMaxHealth();
+        playerShip.GetComponent<HealthManager>().UpdateHealthBarUI();
 
         gameEnded = false;
         gameOverUI.SetActive(false);
