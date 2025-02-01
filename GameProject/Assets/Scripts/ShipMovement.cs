@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour
 {
+    public bool boosting = false;
+
     private Transform player;
     private int turnDelay = 0;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float maxSpeed = 5f;
+
+    [SerializeField] private float NormalSpeed = 1f;
+    [SerializeField] private float maxNormalSpeed = 3.5f;
+
+    [SerializeField] private float BoostingSpeed = 2f;
+    [SerializeField] private float maxBoostingSpeed = 5f;
     [SerializeField] private float rotationSpeed = 5f;
     public TMP_Text speedText;
 
@@ -17,6 +25,15 @@ public class ShipMovement : MonoBehaviour
 
     private void Update() {
         if (gameController.gameEnded) return;
+        if (boosting)
+        {
+            speed = BoostingSpeed;
+            maxSpeed = maxBoostingSpeed;
+        } else
+        {
+            speed = NormalSpeed;
+            maxSpeed = maxNormalSpeed;
+        }
 
         turnDelay += 1;
         Vector3 mousePosition = Input.mousePosition;

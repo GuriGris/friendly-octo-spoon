@@ -2,76 +2,42 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BoostManager : MonoBehaviour
-{
+{ 
     public Slider slider;
     public Image fill;
     public float BoostAmount = 20f;
-    public float fractions = 1f;
-    public float boost;
-    public float TargetBoost = 20f;
-    public float diff;
-    public float count;
-    public Gradient gradient;
+    public ShipMovement shipMovement;
+    public float BoostUsage;
+    public float BoostRecovery;
 
     private void Start()
     {
-        fill.color = gradient.Evaluate(1f);
+        shipMovement = GetComponent<ShipMovement>();
     }
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && BoostAmount > 0)
         {
-            UpdateBoost(0.1f);
-        }
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            UpdateBoost(-5);
-        }
-
-        UpdatesliderUI();
-    }
-
-    public void UpdatesliderUI()
-    {
-        if (fractions > 1)
-        {
-            BoostAmount -= diff / fractions;
+            BoostAmount -= BoostUsage / 100;
             slider.value = BoostAmount;
-            count += 1;
-        }
-
-        if (BoostAmount > 20f)
+            shipMovement.boosting = true;
+        } else
         {
-            BoostAmount = 20f;
-            slider.value = 20;
-            TargetBoost = 20f;
+            shipMovement.boosting = false;
+            BoostAmount += BoostRecovery / 100;
+            slider.value = BoostAmount;
         }
-
-        if (count >= fractions)
+        if (BoostAmount > 20)
         {
-            BoostAmount = TargetBoost;
-            fractions = 1;
-            count = 0;
+            SetMaxBoost();
         }
-
-        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
-    public void UpdateBoost(float boost)
-    {
-        TargetBoost -= boost;
-        fractions = Mathf.Abs(BoostAmount - TargetBoost) * 5f;
-        count = 0;
-        diff = BoostAmount - TargetBoost;
-    }
 
-    public void SetMaxHealth()
+    public void SetMaxBoost()
     {
         BoostAmount = 20;
         slider.value = 20;
-        TargetBoost = 20f;
-        fractions = 1;
-        count = 0;
     }
 }
