@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
-        Vector3 pos = ship.transform.position;
-        transform.position = pos;
+        Vector2 pos = ship.transform.position;
+        transform.position = new Vector3(pos.x, pos.y, transform.position.z);
     }
 }

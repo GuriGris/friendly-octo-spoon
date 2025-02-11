@@ -1,13 +1,21 @@
 ﻿using UnityEngine;
 
 class asteroidController : MonoBehaviour {
-    [SerializeField] private float moveSpeed = 1f;
-    private void Update() {
-        if (gameController.gameEnded) return;
-        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-        if (transform.position.x < -10) {
-            //transform.position = new Vector3(10, transform.position.y, -3);
-            Destroy(gameObject);
-        }
+    [SerializeField] private float moveSpeed = 15f;
+    Quaternion rotation;
+
+    ShipAttacks ship;
+    Rigidbody2D myRigidbody;
+
+    private void Start()
+    {
+        myRigidbody = GetComponent<Rigidbody2D>();
+        ship = FindFirstObjectByType<ShipAttacks>();
+
+        rotation = ship.transform.rotation;
+    }
+
+    void Update() {
+        myRigidbody.linearVelocity = rotation * Vector2.up * moveSpeed;
     }
 }
