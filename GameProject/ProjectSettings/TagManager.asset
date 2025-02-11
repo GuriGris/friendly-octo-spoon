@@ -44,5 +44,17 @@ TagManager:
   - name: Background
     uniqueID: 1163069909
     locked: 0
+  - name: Island
+    uniqueID: 1917821369
+    locked: 0
+  - name: Player
+    uniqueID: 1509786431
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 251956551
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 3148082869
+    locked: 0
   m_RenderingLayers:
   - Default
